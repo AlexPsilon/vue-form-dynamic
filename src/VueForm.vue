@@ -1,48 +1,44 @@
 <template>
-    <form v-bind="{id, method, action}" @submit.prevent="handlerSubmit">
-        <component v-for="(props, key) in schema" :key="key" :is="key" :properties="props"></component>
-        <div class="form__group">
-            <button class="form__submit" type="submit">Отправить</button>
-        </div>
+    <form v-if="isShow"
+        class="form"
+        v-bind="{action, method}"
+    >
+        <component v-for="(data, component) in schema"
+            :key="component"
+            :is="`vue-${component}`"
+            v-bind="data"
+        ></component>
     </form>
 </template>
 
 <script>
-import FormFields from './components/FormFields';
+import FormTitle from './components/FormTitle';
+import FormSubTitle from './components/FormSubTitle';
 
 export default {
     name: 'VueForm',
     props: {
-        id: {
-            type: String,
-            default: null,
-        },
-        method: {
-            type: String,
-            default: 'GET',
-        },
         action: {
             type: String,
             required: true,
+        },
+        method: {
+            type: String,
+            default: 'POST',
         },
         schema: {
             type: Object,
             default: () => ({}),
         },
-        submitEnable: {
-            type: Boolean,
-            default: true,
-        },
     },
-    methods: {
-        handlerSubmit(event) {
-            if (this.submitEnable) {
-                this.$emit('submit');
-            }
+    computed: {
+        isShow() {
+            return Object.keys(this.schema).length > 0;
         },
     },
     components: {
-        fields: FormFields,
+        [`vue-title`]: FormTitle,
+        [`vue-subTitle`]: FormSubTitle,
     },
 };
 </script>
