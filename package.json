@@ -1,0 +1,38 @@
+{
+    "name": "vue-form-dynamic",
+    "version": "0.0.1",
+    "description": "Dynamic form generation",
+    "main": "index.js",
+    "scripts": {
+        "test": "test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/AlexPsilon/vue-form-dynamic.git"
+    },
+    "keywords": [
+        "vue",
+        "form",
+        "generation",
+        "dynamic",
+        "schema",
+        "json"
+    ],
+    "author": "alexpsilon@gmail.com",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/AlexPsilon/vue-form-dynamic/issues"
+    },
+    "homepage": "https://github.com/AlexPsilon/vue-form-dynamic#readme",
+    "dependencies": {
+        "babel-core": "^6.26.0",
+        "babel-jest": "^22.4.1",
+        "babel-loader": "^7.1.4",
+        "babel-plugin-syntax-dynamic-import": "^6.18.0",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-plugin-transform-runtime": "^6.23.0",
+        "babel-preset-env": "^1.7.0",
+        "jest": "^22.4.2",
+        "rndm": "^1.2.0"
+    }
+}
